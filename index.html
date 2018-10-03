@@ -6,12 +6,13 @@
   <h2 id="cd"></h2>
   <script type="text/javascript">
     var takeOff = new Date("28 Jan, 2019 08:00:00").getTime();
-    setInterval(function() {
+    var aTimer = setInterval(function() {
       var now = new Date().getTime();
       var remaining = takeOff - now;
       
       if(remaining < 0) {
         document.getElementById("cd").innerHtml = "it already took off...";
+        clearInterval(aTimer);
       } else {
         var days = Math.floor(remaining / (1000 * 60 * 60 * 24));
         var hours = Math.floor((remaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));

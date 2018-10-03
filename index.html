@@ -11,7 +11,7 @@
       var remaining = takeOff - now;
       
       if(remaining < 0) {
-        document.getElementById("cd").innerHtml = "it already took off...";
+        document.getElementById("cd").innerText = "it already took off...";
         clearInterval(aTimer);
       } else {
         var days = Math.floor(remaining / (1000 * 60 * 60 * 24));
@@ -19,7 +19,7 @@
         var minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
         var seconds = Math.floor((remaining % (1000 * 60)) / 1000);
       
-        document.getElementById("cd").innerHtml = days + " days, " + hours + " hours, " + minutes + " minutes, " + seconds + " seconds"; 
+        document.getElementById("cd").innerText = days + " days, " + hours + " hours, " + minutes + " minutes, " + seconds + " seconds"; 
       }
     }, 1000);
   </script>

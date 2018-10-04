@@ -1,23 +1,23 @@
 <html>
 <head>
+  <title>Fjeddo Full Fart Countdown</title>
 </head>
 <body>
   <h1>Fjeddo Full Fart Countdown</h1>
   <h2 id="cd"></h2>
   <script type="text/javascript">
-    var takeOff = new Date("28 Jan, 2019 08:00:00").getTime();
-    var aTimer = setInterval(function() {
-      var now = new Date().getTime();
-      var remaining = takeOff - now;
+    var takeOff = new Date("2019-01-28 08:00:00").getTime() / 1000;
+    setInterval(function() {
+      var now = new Date().getTime() / 1000;
+      var remainingSeconds = takeOff - now;
       
-      if(remaining < 0) {
+      if(remainingSeconds < 0) {
         document.getElementById("cd").innerText = "it already took off...";
-        clearInterval(aTimer);
       } else {
-        var days = Math.floor(remaining / (1000 * 60 * 60 * 24));
-        var hours = Math.floor((remaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((remaining % (1000 * 60)) / 1000);
+        var days = Math.floor(remainingSeconds / (60 * 60 * 24));
+        var hours = Math.floor((remainingSeconds % (60 * 60 * 24)) / (60 * 60));
+        var minutes = Math.floor((remainingSeconds % (60 * 60)) / 60);
+        var seconds = Math.floor(remainingSeconds % 60);
       
         document.getElementById("cd").innerText = days + " days, " + hours + " hours, " + minutes + " minutes, " + seconds + " seconds"; 
       }
